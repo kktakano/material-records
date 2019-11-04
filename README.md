@@ -22,3 +22,60 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+## usersテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|name|string|null: false, index: true|
+|e_mail|string|null: false, add_index|
+|password|string|null: false|
+
+### Association
+- has_many :items
+- has_many :materials
+
+
+
+## itemsテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|name|string|null: false|
+|price|integer||
+|cost|decimal(6,1)|null: false|
+|image|string||
+|stock|integer|null: false|
+
+### Association
+- belongs_to :user
+- has_many :use_materials
+
+
+## materialsテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|name|string|null: false|
+|price|integer|null: false|
+|value|integer|null: false|
+|unit|string|null: false|
+|image|string||
+|supplier|string||
+
+### Association
+- belongs_to :user
+- has_many :use_materials
+
+
+## use_materialsテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|material_id|references|null: false, foreign_key: true|
+|price|decimal(6,1)|null: false|
+|value|decimal(6,1)|null: false|
+
+### Association
+- belongs_to :item
+- belongs_to :material
