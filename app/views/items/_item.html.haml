@@ -1,0 +1,22 @@
+.contents
+  .contents__title
+    Items
+  .contents__search
+    %input.contents__search__field{:placeholder => "アイテムを検索"}/
+  #search-result  
+  .contents__item
+    .contents__item__image
+      = image_tag item.image.url if item.image.present?
+    .contents__item__content
+      .contents__item__content__name
+        = item.name
+      .contents__item__content__price
+        .contents__item__content__price__sell
+          = "¥#{item.price}"
+        .contents__item__content__price__cost
+          = "¥#{item.cost}"
+    .contents__item__stock
+      .contents__item__stock__circle
+        = "#{item.stock}コ"
+        
+    -# = paginate(@items)
