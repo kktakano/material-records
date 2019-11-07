@@ -1,0 +1,2 @@
+class UseMaterial < ApplicationRecord
+end
