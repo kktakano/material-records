@@ -1,0 +1,42 @@
+.header
+  .header__name
+    MaterialRecords
+  .header__menu
+    
+    .header__menu__right
+      menu
+
+= form_with model: @item, local: true do |f|
+  .contents
+    .contents__title
+      New Product
+    .contents__item
+      .contents__item__image
+        = f.file_field :image
+      .contents__item__content
+        .contents__item__content__name
+          = f.text_field :name, placeholder:'商品名を入力'
+        .contents__item__content__price
+          .contents__item__content__price__sell
+            = f.number_field :price
+          .contents__item__content__price__cost
+            = f.number_field :cost
+      .contents__item__stock
+        .contents__item__stock__circle
+          = f.number_field :stock, class: 'contents__item__stock__circle', placeholder:'個数' 
+    .contents__search
+      %input.contents__search__field{:placeholder => "素材を検索"}/
+      #search-result  
+
+
+  .materials
+    .material
+      .material__image
+      .material__name
+      .material__price
+      .marerial__quantity
+        .material__quantity__value
+
+        .material__quantity__unit
+
+  = f.submit class: 'edit-form__action-btn'

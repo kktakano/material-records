@@ -1,16 +1,22 @@
 .header
   .header__name
-    MarerialRecords
+    MaterialRecords
   .header__menu
-    = link_to 
-    .header__menu__left
-      AddItem
+    = link_to new_item_path do
+      .header__menu__left
+        Add Product
     .header__menu__right
-      nemu
+      menu
 
 
 
+.contents
+  .contents__title
+    Product
+  .contents__search
+    %input.contents__search__field{:placeholder => "商品を検索"}/
+  #search-result  
+  = render @items
 
-= render @items
 
   

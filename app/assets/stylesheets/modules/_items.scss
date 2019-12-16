@@ -38,6 +38,7 @@ body{
     line-height: 60px;
     &__left{
       padding-right: 20px;
+      color: white;
     }
     &__right{
     }
@@ -82,13 +83,20 @@ body{
       height: 120px;
       width: 120px;
       padding: 10px;
-      border-radius:15px;
+      img{
+        border-radius:5px;
+
+      }
+      .hidden{
+        display: none;
+      }
     }
     &__content{
       width: 270px;
       padding: 0 20px 10px;
       &__name{
         font-size: 25px;
+        color: black;
       }
       &__price{
         display: flex;
@@ -115,7 +123,44 @@ body{
         text-align:center;
         line-height: 55px;
         color: white;
+        border: none;
       }
     }
+  }
+}
+
+.materials{
+  font-size: 23px;
+  height: 100px;
+  width: 550px;
+  margin: 0 auto;
+
+
+  .material{
+    display: flex;
+    border: thin solid rgb(203, 213, 219);
+    border-radius:5px;
+    height: 70px;
+    text-align:center;
+
+    &__image{
+      width: 70px;
+    }
+    &__name{
+      width: 230px;
+      line-height: 70px;
+    }
+    &__price{
+      width: 150px;
+      line-height: 70px;
+    }
+    &__value{
+      line-height: 70px;
+    }
+    &__unit{
+      line-height: 70px;
+    }
+    
+
   }
 }

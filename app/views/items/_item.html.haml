@@ -1,12 +1,8 @@
-.contents
-  .contents__title
-    Items
-  .contents__search
-    %input.contents__search__field{:placeholder => "アイテムを検索"}/
-  #search-result  
-  .contents__item
-    .contents__item__image
-      = image_tag item.image.url if item.image.present?
+.contents__item
+  .contents__item__image
+    = image_tag src='782DFD9F-69B5-46D5-8904-B517906225AA.JPG',size: "100x100"
+    -# = image_tag item.image.url if item.image.present?
+  = link_to edit_item_path(item) do
     .contents__item__content
       .contents__item__content__name
         = item.name
@@ -15,8 +11,8 @@
           = "¥#{item.price}"
         .contents__item__content__price__cost
           = "¥#{item.cost}"
-    .contents__item__stock
-      .contents__item__stock__circle
-        = "#{item.stock}コ"
-        
-    -# = paginate(@items)
+  .contents__item__stock
+    .contents__item__stock__circle
+      = "#{item.stock}コ"
+      
+  -# = paginate(@items)
