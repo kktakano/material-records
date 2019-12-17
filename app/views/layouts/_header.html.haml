@@ -5,22 +5,22 @@
   .header__menu
     %ul.header__menu__right
       %li.header__menu__single
-        = link_to "#" , class: ".init-bottom" do
+        .init-bottom
           Menu
         %ul.menu__second-level
+          %li
+            = link_to root_path do
+              Top
           %li
             = link_to new_item_path do
               New Product
           %li
-            = link_to "#" do
-              Child Menu
+            = link_to new_material_path do
+              New Material
+          %li
+            = link_to material_index_path do
+              Material List
           %li
             = link_to "#" do
-              Child Menu
-          %li
-            = link_to "#" do
-              Child Menu
-          %li
-            = link_to "#" do
-              Child Menu
+              Logout
 
