@@ -21,6 +21,11 @@ body{
     text-align: center;
     margin: 50 auto;
     padding-top: 20px;
+    &__sub{
+      font-size: 20px;
+      padding-top: 2px;
+      color: darkgray;
+    }
   }
   &__search{
     height: 60px;
