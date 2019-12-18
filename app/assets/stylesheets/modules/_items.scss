@@ -46,7 +46,7 @@ body{
   }
   &__item{
     height: 150px;
-    width: 550px;
+    width: 60%;
     display: flex;
     margin: 5px auto;
     padding: 20px;
@@ -54,29 +54,32 @@ body{
     border-radius:5px;
 
     &__image{
-      height: 120px;
-      width: 120px;
+      height: 114px;
+      width: 114px;
       padding: 10px;
+      background-color: darkgrey;
+      border-radius:5px;
+      .visible-pc{
+        font-size: 5px;
+        text-align: center;
+        padding-top: 35px;
+      }
       img{
         border-radius:5px;
-
-      }
-      .hidden{
-        display: none;
       }
     }
     &__content{
-      width: 270px;
+      width: 80%;
       padding: 0 20px 10px;
       &__name{
-        font-size: 25px;
+        font-size: 15px;
         color: black;
       }
       &__price{
         display: flex;
 
         &__sell{
-          padding: 40px 0px 0px;
+          padding: 5px 0px 0px;
           color: gray;
         }
         &__cost{
@@ -108,7 +111,6 @@ body{
   height: 100px;
   width: 550px;
   margin: 0 auto;
-
 
   .material{
     display: flex;
