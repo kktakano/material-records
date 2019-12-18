@@ -1,26 +1,41 @@
-.header
-  .header__name
-    = link_to "MaterialRecords", root_path
+-# .header
+-#   .header__name
+-#     = link_to "MaterialRecords", root_path
     
-  .header__menu
-    %ul.header__menu__right
-      %li.header__menu__single
-        .init-bottom
-          Menu
-        %ul.menu__second-level
-          %li
-            = link_to root_path do
-              Top
-          %li
-            = link_to new_item_path do
-              New Product
-          %li
-            = link_to new_material_path do
-              New Material
-          %li
-            = link_to materials_path do
-              Material List
-          %li
-            = link_to "#" do
-              Logout
+-#   .header__menu
+-#     %ul.header__menu__right
+-#       %li.header__menu__single
+-#         .init-bottom
+-#           Menu
+-#         %ul.menu__second-level
+-#           %li
+-#             = link_to root_path do
+-#               Top
+-#           %li
+-#             = link_to new_item_path do
+-#               New Product
+-#           %li
+-#             = link_to new_material_path do
+-#               New Material
+-#           %li
+-#             = link_to materials_path do
+-#               Material List
+-#           %li
+-#             = link_to "#" do
+-#               Logout
 
+%nav.navbar.navbar-light{style: "background-color: navy;"}
+  .container
+    = link_to "MaterialRecords", root_path, class: "navbar-brand",style: "color: white;"
+    -# %form.form-inline
+    -#   %button.btn.btn-outline-success.my-2.my-sm-0{:type => "submit",style: "color: white;"} Search
+    .dropdown
+      %button#dropdownMenuButton.btn.btn-secondary.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :type => "button"}
+        Menu
+      .dropdown-menu{"aria-labelledby" => "dropdownMenuButton"}
+        = link_to "#", class: "dropdown-item" do
+          menu
+        = link_to "#", class: "dropdown-item" do
+          menu
+        = link_to "#", class: "dropdown-item" do
+          menu
