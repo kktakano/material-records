@@ -1,34 +1,13 @@
-.header
-  .header__name
-    MarerialRecords
-  .header__menu
-    .header__menu__left
-      AddItem
-    .header__menu__right
-      nemu
-
-
+= render 'layouts/header'
 
 
 .contents
   .contents__title
-    Items
+    Product
   .contents__search
-    %input.contents__search__field{:placeholder => "アイテムを検索"}/
+    %input.contents__search__field{:placeholder => "商品を検索"}/
   #search-result  
-  .contents__item
-    .contents__item__image
-      =image_tag src="782DFD9F-69B5-46D5-8904-B517906225AA.JPG"
-    .contents__item__content
-      .contents__item__content__name
-        コインケース
-      .contents__item__content__price
-        .contents__item__content__price__sell
-          ¥12000
-        .contents__item__content__price__cost
-          ¥4000
-    .contents__item__stock
-      .contents__item__stock__circle
-        10コ
+  = render @items
+
 
   

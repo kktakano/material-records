@@ -12,37 +12,7 @@ body{
   min-height: 100%;
 }
 
-.header{
-  border-color: #e1e1e1;
-  border-style: solid;
-  border-width: 0 0 1px;
-  background-color:navy;
-  height: 60px;
-  width: 100%;
-  display: flex;
-  position: fixed;
-  z-index: 1;
-  color: white;
-  padding: 0 40px;
-  &__name{
-    font-size: 25px;
-    text-align: center;
-    display: block;
-    width: 30%;
-    margin: 0 auto 0 0;
-    line-height: 60px;
-  }
-  &__menu{
-    float: right;
-    display: flex;
-    line-height: 60px;
-    &__left{
-      padding-right: 20px;
-    }
-    &__right{
-    }
-  }
-}
+
 
 .contents{
   padding-top: 60px;
@@ -51,6 +21,11 @@ body{
     text-align: center;
     margin: 50 auto;
     padding-top: 20px;
+    &__sub{
+      font-size: 20px;
+      padding-top: 2px;
+      color: darkgray;
+    }
   }
   &__search{
     height: 60px;
@@ -71,30 +46,40 @@ body{
   }
   &__item{
     height: 150px;
-    width: 550px;
+    width: 60%;
     display: flex;
-    margin: 0 auto;
+    margin: 5px auto;
     padding: 20px;
     border: 1px solid gray;
     border-radius:5px;
 
     &__image{
-      height: 120px;
-      width: 120px;
+      height: 114px;
+      width: 114px;
       padding: 10px;
-      border-radius:15px;
+      background-color: darkgrey;
+      border-radius:5px;
+      .visible-pc{
+        font-size: 5px;
+        text-align: center;
+        padding-top: 35px;
+      }
+      img{
+        border-radius:5px;
+      }
     }
     &__content{
-      width: 270px;
+      width: 80%;
       padding: 0 20px 10px;
       &__name{
-        font-size: 25px;
+        font-size: 15px;
+        color: black;
       }
       &__price{
         display: flex;
 
         &__sell{
-          padding: 40px 0px 0px;
+          padding: 5px 0px 0px;
           color: gray;
         }
         &__cost{
@@ -115,7 +100,43 @@ body{
         text-align:center;
         line-height: 55px;
         color: white;
+        border: none;
       }
     }
+  }
+}
+
+.materials{
+  font-size: 23px;
+  height: 100px;
+  width: 550px;
+  margin: 0 auto;
+
+  .material{
+    display: flex;
+    border: thin solid rgb(203, 213, 219);
+    border-radius:5px;
+    height: 70px;
+    text-align:center;
+
+    &__image{
+      width: 70px;
+    }
+    &__name{
+      width: 230px;
+      line-height: 70px;
+    }
+    &__price{
+      width: 150px;
+      line-height: 70px;
+    }
+    &__value{
+      line-height: 70px;
+    }
+    &__unit{
+      line-height: 70px;
+    }
+    
+
   }
 }

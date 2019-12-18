@@ -1,0 +1,58 @@
+.header
+  .header__name
+    MaterialRecords
+  .header__menu
+    
+    .header__menu__right
+      menu
+
+= form_with model: @item, local: true do |f|
+  .contents
+    .contents__title
+      Edit Product
+    .contents__item
+      .contents__item__image
+        = image_tag src='782DFD9F-69B5-46D5-8904-B517906225AA.JPG',size: "100x100"
+        -# = image_tag @item.image.url if @item.image.present?
+        = f.file_field :image, class: "hidden"
+      .contents__item__content
+        .contents__item__content__name
+          = f.text_field :name, placeholder:'商品名を入力'
+        .contents__item__content__price
+          .contents__item__content__price__sell
+            = "¥#{@item.price}"
+          .contents__item__content__price__cost
+            = "¥#{@item.cost}"
+      .contents__item__stock
+        .contents__item__stock__circle
+          = f.number_field :stock, class: 'contents__item__stock__circle', placeholder:'個数' 
+    .contents__search
+      %input.contents__search__field{:placeholder => "素材を検索"}/
+      #search-result  
+
+
+  .materials
+    .material
+      .material__image
+      .material__name
+        牛革(mine-black)
+      .material__price
+        ¥3800
+      .material__value
+        28
+      .material__unit
+        ds
+  .materials
+    .material
+      .material__image
+      .material__name
+        ホック
+      .material__price
+        ¥200
+      .material__value
+        1
+      .material__unit
+        セット
+
+  = f.hidden_field :id
+  = f.submit class: 'edit-form__action-btn'
