@@ -29,17 +29,27 @@
     = link_to "MaterialRecords", root_path, class: "navbar-brand",style: "color: white;"
     -# %form.form-inline
     -#   %button.btn.btn-outline-success.my-2.my-sm-0{:type => "submit",style: "color: white;"} Search
-    .dropdown
-      %button#dropdownMenuButton.btn.btn-secondary.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :type => "button"}
-        Menu
-      .dropdown-menu{"aria-labelledby" => "dropdownMenuButton"}
-        = link_to "#", class: "dropdown-item" do
-          Top
-        = link_to "#", class: "dropdown-item" do
-          New Product
-        = link_to "#", class: "dropdown-item" do
-          New Material
-        = link_to "#", class: "dropdown-item" do
-          Material List
-        = link_to "#", class: "dropdown-item" do
-          Logout
+    - if user_signed_in?
+      .dropdown
+        %button#dropdownMenuButton.btn.btn-secondary.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :type => "button"}
+          Menu
+        .dropdown-menu{"aria-labelledby" => "dropdownMenuButton"}
+          = link_to "#", class: "dropdown-item" do
+            Top
+          = link_to "#", class: "dropdown-item" do
+            New Product
+          = link_to "#", class: "dropdown-item" do
+            New Material
+          = link_to "#", class: "dropdown-item" do
+            Material List
+          = link_to destroy_user_session_path, method: :delete, class: "dropdown-item" do
+            Logout
+    - else
+      .btn-group{"aria-label" => "Basic example", :role => "group"}
+        = link_to new_user_session_path, class: "btn btn-secondary" do
+          ログイン
+        = link_to new_user_registration_path, class: "btn btn-secondary" do
+          新規登録
+      
+
+      
