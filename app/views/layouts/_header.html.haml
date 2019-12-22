@@ -34,7 +34,7 @@
         %button#dropdownMenuButton.btn.btn-secondary.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :type => "button"}
           Menu
         .dropdown-menu{"aria-labelledby" => "dropdownMenuButton"}
-          = link_to "#", class: "dropdown-item" do
+          = link_to root_path, class: "dropdown-item" do
             Top
           = link_to new_item_path, class: "dropdown-item" do
             New Product

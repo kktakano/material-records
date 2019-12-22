@@ -1,45 +1,114 @@
--# = render 'layouts/header'
+%main{:role => "main"}
+  %section
+    %h1.text-center.jumbotron-heading.my-4 NewProducts
+    .h5.text-center 商品登録
+    .container
+      .card.mb-3.mx-auto{:style => "max-width: 850px;"}
+        .row.no-gutters
+          .col-md-4
+            = image_tag src='782DFD9F-69B5-46D5-8904-B517906225AA.JPG', class: "card-img-top"
+          .col-md-8
+            .card-body
+              .form-group.row
+                %label.col-sm-5.col-form-label.col-form-label-lg{:for => "colFormLabelLg"} 商品名
+                %input.form-control.form-control-lg.col-6{:placeholder => "Item name", :type => "text"}/
+              .form-group.row
+                %label.col-sm-5.col-form-label.col-form-label-lg{:for => "inlineFormCustomSelectPref"} 販売価格(¥)
+                %input.form-control.col-6{:placeholder => "Price", :type => "text"}/
+              .form-group.row
+                %label.col-sm-5.col-form-label.col-form-label-lg{:for => "inlineFormCustomSelectPref"} 材料価格の合計(¥)
+                %input.form-control.col-6{:placeholder => "Total cost", :type => "text"}/
+      .add-materials
+      %button.btn.btn-primary.btn-lg.mx-auto.d-block.mt-3.mb-5{:type => "button",style: "width:200px;"} 登録する
+      %h2.text-center.jumbotron-heading Materials
+      %input.form-control.form-control-lg.col-6.mx-auto{:placeholder => "追加したい材料を検索", :type => "text"}/
 
+  .album.py-5.bg-light
+    .container
+      .row
+        .card.mx-auto{:style => "width: 18rem;"}
+          = image_tag src='3_000000002133.jpg',class: "bd-placeholder-img card-img-top",focusable: "false",height: "180", preserveaspectratio: "xMidYMid slice",role: "img",style:"object-fit: contain;"
+          .card-body
+            %h5.card-title バネホック
+          %ul.list-group.list-group-flush
+            %li.list-group-item 仕入れ値:
+            %li.list-group-item 仕入れ総数:
+            %li.list-group-item 単位(セット・cm):
+          .card-body
+            %a.card-link{:href => "#"} Card link
+            %a.card-link{:href => "#"} Another link
 
+        .card.mx-auto{:style => "width: 18rem;"}
+          = image_tag src='3_000000002133.jpg',class: "bd-placeholder-img card-img-top",focusable: "false",height: "180", preserveaspectratio: "xMidYMid slice",role: "img",style:"object-fit: contain;"
+          .card-body
+            %h5.card-title バネホック
+          %ul.list-group.list-group-flush
+            %li.list-group-item 仕入れ値:
+            %li.list-group-item 仕入れ総数:
+            %li.list-group-item 単位(セット・cm):
+          .card-body
+            %a.card-link{:href => "#"} Card link
+            %a.card-link{:href => "#"} Another link
 
--# = form_with model: @item, local: true do |f|
--#   .contents
--#     .contents__title
--#       New Product
--#       .contents__title__sub
--#         商品の追加
--#     .contents__item
--#       = f.label :image do
--#         .contents__item__image
--#           = f.file_field :image ,style: "display :none;"
--#           %pre.visible-pc
--#             :preserve
--#               クリックして
--#               ファイルをアップロード
--#       .contents__item__content
--#         .contents__item__content__name
--#           = f.text_field :name, placeholder:'商品名を入力'
--#         .contents__item__content__price
--#           .contents__item__content__price__sell
--#             = f.number_field :price, placeholder:'上代の入力'
--#           .contents__item__content__price__cost
--#             = f.number_field :cost, placeholder:'材料代の合計'
--#       .contents__item__stock
--#         .contents__item__stock__circle
--#           = f.number_field :stock, class: 'contents__item__stock__circle', placeholder:'個数' 
--#     .contents__search
--#       %input.contents__search__field{:placeholder => "素材を検索"}/
--#       #search-result  
+        .card.mx-auto{:style => "width: 18rem;"}
+          = image_tag src='3_000000002133.jpg',class: "bd-placeholder-img card-img-top",focusable: "false",height: "180", preserveaspectratio: "xMidYMid slice",role: "img",style:"object-fit: contain;"
+          .card-body
+            %h5.card-title バネホック
+          %ul.list-group.list-group-flush
+            %li.list-group-item 仕入れ値:
+            %li.list-group-item 仕入れ総数:
+            %li.list-group-item 単位(セット・cm):
+          .card-body
+            %a.card-link{:href => "#"} Card link
+            %a.card-link{:href => "#"} Another link
 
+        .card{:style => "width: 18rem;"}
+          = image_tag src='3_000000002133.jpg',class: "bd-placeholder-img card-img-top",focusable: "false",height: "180", preserveaspectratio: "xMidYMid slice",role: "img",style:"object-fit: contain;"
+          .card-body
+            %h5.card-title バネホック
+          %ul.list-group.list-group-flush
+            %li.list-group-item 仕入れ値:
+            %li.list-group-item 仕入れ総数:
+            %li.list-group-item 単位(セット・cm):
+          .card-body
+            %a.card-link{:href => "#"} Card link
+            %a.card-link{:href => "#"} Another link
 
--#   .materials
--#     .material
--#       .material__image
--#       .material__name
--#       .material__price
--#       .marerial__quantity
--#         .material__quantity__value
-
--#         .material__quantity__unit
-
--#   = f.submit class: 'edit-form__action-btn'
+        .col-md-4
+          .card.mb-4.shadow-sm
+            %img.card-img-top{:alt => "Card image cap", "data-src" => "holder.js/100px225?theme=thumb&bg=55595c&fg=eceeef&text=Thumbnail"}/
+            .card-body
+              %p.card-text This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.
+              .d-flex.justify-content-between.align-items-center
+                .btn-group
+                  %button.btn.btn-sm.btn-outline-secondary{:type => "button"} View
+                  %button.btn.btn-sm.btn-outline-secondary{:type => "button"} Edit
+        .col-md-4
+          .card.mb-4.shadow-sm
+            %img.card-img-top{:alt => "Card image cap", "data-src" => "holder.js/100px225?theme=thumb&bg=55595c&fg=eceeef&text=Thumbnail"}/
+            .card-body
+              %p.card-text This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.
+              .d-flex.justify-content-between.align-items-center
+                .btn-group
+                  %button.btn.btn-sm.btn-outline-secondary{:type => "button"} View
+                  %button.btn.btn-sm.btn-outline-secondary{:type => "button"} Edit
+        .col-md-4
+          .card.mb-4.shadow-sm
+            %img.card-img-top{:alt => "Card image cap", "data-src" => "holder.js/100px225?theme=thumb&bg=55595c&fg=eceeef&text=Thumbnail"}/
+            .card-body
+              %p.card-text This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.
+              .d-flex.justify-content-between.align-items-center
+                .btn-group
+                  %button.btn.btn-sm.btn-outline-secondary{:type => "button"} View
+                  %button.btn.btn-sm.btn-outline-secondary{:type => "button"} Edit
+                %small.text-muted 9 mins
+        .col-md-4
+          .card.mb-4.shadow-sm
+            %img.card-img-top{:alt => "Card image cap", "data-src" => "holder.js/100px225?theme=thumb&bg=55595c&fg=eceeef&text=Thumbnail"}/
+            .card-body
+              %p.card-text This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.
+              .d-flex.justify-content-between.align-items-center
+                .btn-group
+                  %button.btn.btn-sm.btn-outline-secondary{:type => "button"} View
+                  %button.btn.btn-sm.btn-outline-secondary{:type => "button"} Edit
+                %small.text-muted
