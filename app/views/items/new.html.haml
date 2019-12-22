@@ -6,7 +6,7 @@
       .card.mb-3.mx-auto{:style => "max-width: 850px;"}
         .row.no-gutters
           .col-md-4
-            = image_tag src='782DFD9F-69B5-46D5-8904-B517906225AA.JPG', class: "card-img-top"
+            = image_tag src='782DFD9F-69B5-46D5-8904-B517906225AA.JPG', class: "card-img-top",style:"object-fit: contain;",height: "216"
           .col-md-8
             .card-body
               .form-group.row
@@ -15,7 +15,7 @@
               .form-group.row
                 %label.col-sm-5.col-form-label.col-form-label-lg{:for => "inlineFormCustomSelectPref"} 販売価格(¥)
                 %input.form-control.col-6{:placeholder => "Price", :type => "text"}/
-              .form-group.row
+              .row
                 %label.col-sm-5.col-form-label.col-form-label-lg{:for => "inlineFormCustomSelectPref"} 材料価格の合計(¥)
                 %input.form-control.col-6{:placeholder => "Total cost", :type => "text"}/
       .add-materials
