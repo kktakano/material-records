@@ -1,8 +1,25 @@
-= render 'layouts/header'
+%main{:role => "main"}
+  %section
+    %h1.text-center.jumbotron-heading.my-4 New Material
+    .h5.text-center 材料の登録
+    .container
+      .card.mb-3.mx-auto{:style => "max-width: 850px;"}
+        .row.no-gutters
+          .col-md-4
+            = image_tag src='3_000000002133.jpg', class: "card-img-top",style:"object-fit: contain;",height: "232"
+          .col-md-8
+            .card-body
+              .row
+                %label.col-sm-5.col-form-label.col-form-label-lg{:for => "inlineFormCustomSelectPref"} 材料名
+                %input.form-control.col-6{:placeholder => "Name", :type => "text"}/
+              .row
+                %label.col-sm-5.col-form-label.col-form-label-lg{:for => "inlineFormCustomSelectPref"} 仕入れ価格
+                %input.form-control.col-6{:placeholder => "Price", :type => "text"}/
+              .row
+                %label.col-sm-5.col-form-label.col-form-label-lg{:for => "inlineFormCustomSelectPref"} 数量
+                %input.form-control.col-6{:placeholder => "quantity", :type => "text"}/
+              .row
+                %label.col-sm-5.col-form-label.col-form-label-lg{:for => "inlineFormCustomSelectPref"} 単位(set,cm,deci)
+                %input.form-control.col-6{:placeholder => "unit", :type => "text"}/
+      %button.btn.btn-primary.btn-lg.mx-auto.d-block.mt-3.mb-5{:type => "button",style: "width:200px;"} 登録する
 
-
-.contents
-  .contents__title
-    New Material
-    .contents__title__sub
-      素材の追加
