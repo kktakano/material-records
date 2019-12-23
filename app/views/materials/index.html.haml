@@ -17,5 +17,6 @@
               %li.list-group-item 総数: #{material.value}
               %li.list-group-item 単位(set,cm): #{material.unit}
             .card-body
-              %button.btn.btn-sm.btn-outline-secondary{:type => "button"} 編集
+              -# = link_to  "編集", "edit_material_path(material.id)", class:"btn btn-sm btn-outline-secondary", type: "button"
+              %button.btn.btn-sm.btn-outline-secondary{type: "button",onclick: "location.href='/materials/#{material.id}/edit'"} 編集
   

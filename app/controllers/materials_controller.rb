@@ -20,7 +20,7 @@ class MaterialsController < ApplicationController
   end
 
   def edit
-    
+    @material = Material.find(params[:id])
   end
 
   def update

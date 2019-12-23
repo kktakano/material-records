@@ -30,4 +30,4 @@
                 %label.col-sm-5.col-form-label.col-form-label-lg{:for => "inlineFormCustomSelectPref"} 単位(set,cm,deci)
                 = f.text_field :unit, class:"form-control col-6", placeholder:"unit"
       = f.submit "編集する", class:"btn btn-primary btn-lg mx-auto d-block mt-3 mb-5", style: "width:200px;"
-      = linl_to ""
+      = link_to("/materials/#{@material.id}",{method:"delete"}) do
