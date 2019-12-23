@@ -20,14 +20,27 @@ class MaterialsController < ApplicationController
   end
 
   def edit
-    
+    @material = Material.find(params[:id])
   end
 
   def update
-    
+    material = Material.find(params[:id])
+    if material.update(material_params)
+      redirect_to materials_path, notice: '材料を編集しました'
+    else
+      render :edit
+    end
+
   end
 
+  def destroy
+    product = Material.find(params[:id])
+    # product.destroy if product.user.id == current_user.id
+    product.destroy
+    redirect_to materials_path, notice: '材料を削除しました'
+  end
 
+  private
   def material_params
     params.require(:material).permit(:name,:price,:value,:unit,:image)
   end
