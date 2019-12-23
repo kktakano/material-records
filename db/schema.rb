@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_16_101645) do
+ActiveRecord::Schema.define(version: 2019_12_23_185422) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -37,9 +37,10 @@ ActiveRecord::Schema.define(version: 2019_12_16_101645) do
     t.string "name", null: false
     t.integer "price"
     t.decimal "cost", precision: 10, scale: 1, null: false
-    t.integer "stock", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_items_on_user_id"
   end
 
   create_table "materials", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -50,6 +51,8 @@ ActiveRecord::Schema.define(version: 2019_12_16_101645) do
     t.string "supplier"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_materials_on_user_id"
   end
 
   create_table "use_materials", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -75,5 +78,7 @@ ActiveRecord::Schema.define(version: 2019_12_16_101645) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "items", "users"
+  add_foreign_key "materials", "users"
   add_foreign_key "use_materials", "materials"
 end
