@@ -27,7 +27,12 @@ class MaterialsController < ApplicationController
     
   end
 
+  def destroy
+    product = Material.find(params[:id])
+    product.destroy if product.user.id == current_user.id
+  end
 
+  private
   def material_params
     params.require(:material).permit(:name,:price,:value,:unit,:image)
   end
