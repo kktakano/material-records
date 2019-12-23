@@ -2,7 +2,7 @@ class MaterialsController < ApplicationController
 
   def index
     @materials = Material.all.order('created_at DESC')
-    binding.pry
+    # binding.pry
   end
 
   def new
@@ -10,7 +10,7 @@ class MaterialsController < ApplicationController
   end
 
   def create
-    binding.pry
+    # binding.pry
     @material = Material.new(material_params)
     if @material.save
       redirect_to materials_path, notice: '材料を登録しました'
