@@ -4,6 +4,9 @@ class ItemsController < ApplicationController
   end
 
   def new
+    @item = Item.new
+    @use_materials = UseMterial.new
+    binding.pry
   end
 
   def create
@@ -30,6 +33,6 @@ class ItemsController < ApplicationController
 
   private
   def item_params
-    params.require(:item).permit(:name, :image, :stock, :cost)
+    params.require(:item).permit(:name, :price, :cost, :image).merge(user_id: current_user.id)
   end
 end
