@@ -1,7 +1,7 @@
 class MaterialsController < ApplicationController
 
   def index
-    @materials = Material.all.order('created_at DESC')
+    @materials = Material.where(user_id: current_user.id).order('created_at DESC')
     # binding.pry
   end
 
@@ -42,6 +42,6 @@ class MaterialsController < ApplicationController
 
   private
   def material_params
-    params.require(:material).permit(:name,:price,:value,:unit,:image)
+    params.require(:material).permit(:name,:price,:value,:unit,:image).merge(user_id: current_user.id)
   end
 end
