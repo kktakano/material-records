@@ -5,6 +5,7 @@ class ItemsController < ApplicationController
 
   def new
     @item = Item.new
+    @materials = Material.where(user_id: current_user.id).order('created_at DESC')
     30.times{@item.use_materials.build}
     # binding.pry
   end
