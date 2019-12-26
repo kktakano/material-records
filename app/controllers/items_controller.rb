@@ -5,8 +5,8 @@ class ItemsController < ApplicationController
 
   def new
     @item = Item.new
-    @use_materials = UseMterial.new
-    binding.pry
+    30.times{@item.use_materials.build}
+    # binding.pry
   end
 
   def create

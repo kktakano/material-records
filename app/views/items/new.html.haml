@@ -3,23 +3,31 @@
     %h1.text-center.jumbotron-heading.my-4 NewProducts
     .h5.text-center 商品登録
     .container
+    = form_with model: @item, local: true do |f|
       .card.mb-3.mx-auto{:style => "max-width: 850px;"}
         .row.no-gutters
           .col-md-4
-            = image_tag src='782DFD9F-69B5-46D5-8904-B517906225AA.JPG', class: "card-img-top",style:"object-fit: contain;",height: "216"
+            = f.label :image ,class: "mb-0" do
+              %svg.bd-placeholder-img{"aria-label" => "Placeholder: Image", :focusable => "false", :height => "216", :preserveaspectratio => "xMidYMid slice", :role => "img", :width => "100%", :xmlns => "http://www.w3.org/2000/svg"}
+                %title Placeholder
+                %rect{:fill => "#868e96", :height => "100%", :width => "100%"}
+                %text{:dy => ".3em", :fill => "#dee2e6", :x => "20%", :y => "50%"} 画像を選択してください
+              = f.file_field :image, style: "display:none;"
+
+            -# = image_tag src='782DFD9F-69B5-46D5-8904-B517906225AA.JPG', class: "card-img-top",style:"object-fit: contain;",height: "216"
           .col-md-8
             .card-body
               .form-group.row
                 %label.col-sm-5.col-form-label.col-form-label-lg{:for => "colFormLabelLg"} 商品名
-                %input.form-control.form-control-lg.col-6{:placeholder => "Item name", :type => "text"}/
+                = f.text_field :name, class:"form-control form-control-lg col-6", placeholder:"Item name"
               .form-group.row
                 %label.col-sm-5.col-form-label.col-form-label-lg{:for => "inlineFormCustomSelectPref"} 販売価格(¥)
-                %input.form-control.col-6{:placeholder => "Price", :type => "text"}/
+                = f.text_field :price, class:"form-control col-6", placeholder:"Price"
               .row
                 %label.col-sm-5.col-form-label.col-form-label-lg{:for => "inlineFormCustomSelectPref"} 材料価格の合計(¥)
-                %input.form-control.col-6{:placeholder => "Total cost", :type => "text"}/
+                = f.text_field :cost, class:"form-control col-6", placeholder:"Total cost"
       .add-materials
-      %button.btn.btn-primary.btn-lg.mx-auto.d-block.mt-3.mb-5{:type => "button",style: "width:200px;"} 登録する
+      = f.submit "登録する", class:"btn btn-primary btn-lg mx-auto d-block mt-3 mb-5", style: "width:200px;"
       %h2.text-center.jumbotron-heading Materials
       %input.form-control.form-control-lg.col-6.mx-auto{:placeholder => "追加したい材料を検索", :type => "text"}/
 
