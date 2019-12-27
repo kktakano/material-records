@@ -29,15 +29,14 @@
       .add-materials
       = f.submit "登録する", class:"btn btn-primary btn-lg mx-auto d-block mt-3 mb-5", style: "width:200px;"
       %h2.text-center.jumbotron-heading Materials
-      %input.form-control.form-control-lg.col-6.mx-auto{:placeholder => "追加したい材料を検索", :type => "text"}/
+      %input.search-materials.form-control.form-control-lg.col-6.mx-auto{:placeholder => "追加したい材料を検索", :type => "text"}/
 
   .album.py-5.bg-light
     .container
-      .row
+      .row.materials-list
         - @materials.each do |material| 
           .card.mx-auto.mb-2{:style => "width: 18rem;"}
             = image_tag material.image,class: "bd-placeholder-img card-img-top",focusable: "false",height: "180", preserveaspectratio: "xMidYMid slice",role: "img",style:"object-fit: contain;"
-            .card-body
             .card-body
               %h5.card-title #{material.name}
             %ul.list-group.list-group-flush

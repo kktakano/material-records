@@ -21,6 +21,11 @@ class ItemsController < ApplicationController
 
   def search
     # @items = Item.where('name LIKE(?)', "%#{params[:keyword]}%")
+    @materials = Material.where('name LIKE(?)', "%#{params[:keyword]}%").where(user_id: current_user.id)
+    respond_to do |format|
+      format.html
+      format.json
+    end
   end
 
   def edit
