@@ -2,7 +2,7 @@ $(function() {
 
   function appendMaterial(material) {
     var html = `<div class="card mx-auto mb-2" style='width: 18rem;'>
-                <%= image_tag ${material.image.image},class: "bd-placeholder-img card-img-top",focusable: "false",height: "180", preserveaspectratio: "xMidYMid slice",role: "img",style:"object-fit: contain;" %>
+                <img class="bd-placeholder-img card-img-top", focusable="false", height="180", src="${material.image}", preserveaspectratio="xMidYMid slice", role= "img", style="object-fit: contain;" >
                 <div class="card-body">
                   <h5 class="card-title">${material.name}</h5>
                 </div>
