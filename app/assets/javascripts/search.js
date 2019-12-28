@@ -18,6 +18,11 @@ $(function() {
     $(".materials-list").append(html)
   }
 
+  function appendErrMsgToHTML(msg){
+    var html = `<div class="name mx-auto">${msg}</div>`
+    $(".materials-list").append(html)
+  }
+
   $(".search-materials").on("keyup", function(){
     var input = $(".search-materials").val();
     // console.log(input)
@@ -31,7 +36,7 @@ $(function() {
     .done(function(materials){
       console.log(materials)
       $(".materials-list").empty();
-      if (materials !== 0){
+      if (materials.length !== 0){
         materials.forEach(function(material){
           appendMaterial(material);
         });
