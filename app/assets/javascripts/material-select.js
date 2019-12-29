@@ -5,12 +5,12 @@ $(function() {
                   <div class="form-group mb-2 col-sm-3">
                     <p class="form-control-plaintext" id="staticEmail2">${materialName}</p>
                   </div>
-                  <div class="form-group mx-sm-3 mb-2">
-                    <p class="mb-0">¥ ${pricePerUnit} / ${materialUnit}</p>
+                  <div class="form-group mx-sm-3 mb-2 price-per-unit" value="${pricePerUnit}">
+                    <p class="mb-0 ">¥ ${pricePerUnit} / ${materialUnit}</p>
                   </div>
                   <div class="form-group mx-sm-3 mb-2">
                     <label for="inputPassword2" class="sr-only">Password</label>
-                    <input type="password" class="form-control" id="inputPassword2" placeholder="使用量を入力">
+                    <input type="number" class="form-control use-material-value" placeholder="使用量を入力">
                     <p class="mb-0">${materialUnit}</P>
                     </div>
                   <button type="submit" class="btn btn-light mb-2 material_delete_button" value="${materialId}">削除</button>
