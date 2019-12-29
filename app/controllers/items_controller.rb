@@ -21,7 +21,7 @@ class ItemsController < ApplicationController
 
   def search
     # @items = Item.where('name LIKE(?)', "%#{params[:keyword]}%")
-    @materials = Material.where('name LIKE(?)', "%#{params[:keyword]}%").where(user_id: current_user.id)
+    @materials = Material.where('name LIKE(?)', "%#{params[:keyword]}%").where(user_id: current_user.id).order('created_at DESC')
     respond_to do |format|
       format.html
       format.json
