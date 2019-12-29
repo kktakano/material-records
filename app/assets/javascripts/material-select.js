@@ -1,7 +1,7 @@
 $(function() {
 
   function addMaterialHtml(materialId,materialName,pricePerUnit,materialUnit){
-    var html = `<form class="form-inline mx-auto" style="max-width: 650px;">
+    var html = `<form class="form-inline mx-auto add-material" style="max-width: 650px;">
                   <div class="form-group mb-2 col-sm-3">
                     <p class="form-control-plaintext" id="staticEmail2">${materialName}</p>
                   </div>
@@ -13,7 +13,7 @@ $(function() {
                     <input type="password" class="form-control" id="inputPassword2" placeholder="使用量を入力">
                     <p class="mb-0">${materialUnit}</P>
                     </div>
-                  <button type="submit" class="btn btn-light mb-2" value="${materialId}">削除</button>
+                  <button type="submit" class="btn btn-light mb-2 material_delete_button" value="${materialId}">削除</button>
                 </form>`;
     $(".add-materials").append(html);
   }
@@ -34,4 +34,10 @@ $(function() {
     addMaterialHtml(materialId,materialName,pricePerUnit,materialUnit)
 
   })
-})
+
+  $(document).on('click','.material_delete_button', function(){
+    $(this)
+    .parents(".add-material")
+    .remove();
+  });
+});
