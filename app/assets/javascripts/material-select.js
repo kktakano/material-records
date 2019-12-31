@@ -1,19 +1,20 @@
 $(function() {
 
   function addMaterialHtml(materialId,materialName,pricePerUnit,materialUnit){
-    var html = `<form class="form-inline mx-auto add-material" style="max-width: 650px;">
+    var html = `<form class="form-inline mx-auto add-material" style="max-width: 60%;">
                   <div class="form-group mb-2 col-sm-3">
                     <p class="form-control-plaintext" id="staticEmail2">${materialName}</p>
                   </div>
-                  <div class="form-group mx-sm-3 mb-2 price-per-unit" data_price-per-unit="${pricePerUnit}">
+                  <div class="form-group mx-sm-3 mb-2 " >
                     <p class="mb-0 ">¥ ${pricePerUnit} / ${materialUnit}</p>
                   </div>
                   <div class="form-group mx-sm-3 mb-2">
-                    <label for="inputPassword2" class="sr-only">Password</label>
+                    <label for="inputPassword2" class="sr-only">use-material-value</label>
                     <input type="number" class="form-control use-material-value" placeholder="使用量を入力" data_price-per-unit="${pricePerUnit}">
                     <p class="mb-0">${materialUnit}</P>
-                    </div>
-                  <button type="submit" class="btn btn-light mb-2 material_delete_button" value="${materialId}">削除</button>
+                  </div>
+                  <button type="button" class="btn btn-light mb-2 determination_button" data_price-per-unit="${pricePerUnit}">使用量の決定</button>
+                  <button type="button" class="btn btn-light mb-2 material_delete_button" value="${materialId}">削除</button>
                 </form>`;
     $(".add-materials").append(html);
   }

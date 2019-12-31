@@ -25,7 +25,7 @@
                 = f.text_field :price, class:"form-control col-6", placeholder:"Price"
               .row
                 %label.col-sm-5.col-form-label.col-form-label-lg{:for => "inlineFormCustomSelectPref"} 材料価格の合計(¥)
-                = f.text_field :cost, class:"form-control col-6", placeholder:"Total cost"
+                = f.text_field :cost, class:"form-control col-6 total-cost-form", placeholder:"Total cost (材料を選択して下さい)", readonly:"readonly"
       .add-materials
       = f.submit "登録する", class:"btn btn-primary btn-lg mx-auto d-block mt-3 mb-5", style: "width:200px;"
       %h2.text-center.jumbotron-heading Materials
