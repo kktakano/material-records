@@ -17,7 +17,9 @@ $(function() {
       // 決定ボタンを押すと入力ができないようにする
       adjacent_class.children(".use-material-value").attr("readonly",true)
       // 決定ボタンを押すと決定ボタンが無効化される
-      $(this).attr("disabled",true)  
+      $(this).attr("disabled",true)
+      // 削除ボタンを無効化
+      $(this).next(".material_delete_button").attr("disabled",true)
     } else {
       alert("小数点第一位までの数を入力してください")
     }
