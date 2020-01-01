@@ -10,7 +10,7 @@ $(function() {
                   </div>
                   <div class="form-group mx-sm-3 mb-2">
                     <label for="inputPassword2" class="sr-only">use-material-value</label>
-                    <input type="number" class="form-control use-material-value" placeholder="使用量を入力" data_price-per-unit="${pricePerUnit}">
+                    <input type="number" class="form-control use-material-value" placeholder="使用量を入力(半角)" data_price-per-unit="${pricePerUnit}">
                     <p class="mb-0">${materialUnit}</P>
                   </div>
                   <button type="button" class="btn btn-light mb-2 determination_button" data_price-per-unit="${pricePerUnit}">使用量の決定</button>
