@@ -3,7 +3,7 @@ $(function() {
 
     // 入力された値を元に材料の合計を計算
   $(document).on('click', '.determination_button', function(){
-    // console.log("発火")
+    // "使用量の決定"を押すことで発火し、入力した使用量に応じて金額を計算
     var adjacent_class = $(this).prev("div")
     var input_value = adjacent_class.children(".use-material-value").val();
     var price_per_unit = $(this).attr("data_price-per-unit");
@@ -13,6 +13,7 @@ $(function() {
     $(".total-cost-form").val(total_cost)
     // 決定ボタンを押すと入力ができないようにする
     adjacent_class.children(".use-material-value").attr("readonly",true)
-    
+    // 決定ボタンを押すと決定ボタンが無効化される
+    $(this).attr("disabled",true)
   })
 })
