@@ -1,7 +1,7 @@
 class MaterialsController < ApplicationController
 
   def index
-    @materials = Material.where(user_id: current_user.id).order('created_at DESC')
+    @materials = Material.where(user_id: current_user.id).order('created_at DESC').page(params[:page]).per(9)
     # binding.pry
   end
 

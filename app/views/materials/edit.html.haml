@@ -14,7 +14,10 @@
             -#     %text{:dy => ".3em", :fill => "#dee2e6", :x => "20%", :y => "50%"} 画像を選択してください
 
             -#   = f.file_field :image, style: "display:none;"
-            = image_tag @material.image, class: "card-img-top",style:"object-fit: contain;",height: "232"
+            - if @material.image.attached?
+              = image_tag @material.image, class: "card-img-top",style:"object-fit: contain;",height: "232"
+            - else
+              = image_tag 'm_e_others_501.png', class: "card-img-top",style:"object-fit: contain;",height: "232"
           .col-md-8
             .card-body
               .row
