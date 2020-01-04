@@ -45,4 +45,4 @@
               %li.list-group-item 単位(set,cm): #{material.unit}
             .card-body
               %button.btn.btn-sm.btn-outline-secondary.select_button{:type => "button",data_material_id:"#{material.id}",data_material_name:"#{material.name}",data_material_price:"#{material.price}",data_material_unit:"#{material.unit}",data_material_value:"#{material.value}"} 選択
-
+      = paginate(@materials)
