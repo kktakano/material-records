@@ -1,17 +1,31 @@
 class ItemsController < ApplicationController
   def index
-    @items = Item.all
+    @items = Item.where(user_id: current_user.id).order('created_at DESC')
   end
 
   def new
+    @item = Item.new
+    @materials = Material.where(user_id: current_user.id).order('created_at DESC')
+    @item.use_materials.build
+    # binding.pry
   end
 
   def create
+    # binding.pry
     @item = Item.new(item_params)
     if @item.save
       redirect_to root_path
     else
       render :new
+    end
+  end
+
+  def search
+    # @items = Item.where('name LIKE(?)', "%#{params[:keyword]}%")
+    @materials = Material.where('name LIKE(?)', "%#{params[:keyword]}%").where(user_id: current_user.id).order('created_at DESC')
+    respond_to do |format|
+      format.html
+      format.json
     end
   end
 
@@ -30,6 +44,6 @@ class ItemsController < ApplicationController
 
   private
   def item_params
-    params.require(:item).permit(:name, :image, :stock, :cost)
+    params.require(:item).permit(:name, :price, :cost, :image, use_materials_attributes:[:material_id,:price]).merge(user_id: current_user.id)
   end
 end
