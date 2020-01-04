@@ -14,7 +14,6 @@
                 %text{:dy => ".3em", :fill => "#dee2e6", :x => "20%", :y => "50%"} 画像を選択してください
               = f.file_field :image, style: "display:none;"
 
-            -# = image_tag src='782DFD9F-69B5-46D5-8904-B517906225AA.JPG', class: "card-img-top",style:"object-fit: contain;",height: "216"
           .col-md-8
             .card-body
               .form-group.row
@@ -26,7 +25,8 @@
               .row
                 %label.col-sm-5.col-form-label.col-form-label-lg{:for => "inlineFormCustomSelectPref"} 材料価格の合計(¥)
                 = f.text_field :cost, class:"form-control col-6 total-cost-form", placeholder:"Total cost (材料を選択して下さい)", readonly:"readonly"
-      .add-materials
+      = f.fields_for :use_materials do |m|
+        .add-materials
       = f.submit "登録する", class:"btn btn-primary btn-lg mx-auto d-block mt-3 mb-5", style: "width:200px;"
       %h2.text-center.jumbotron-heading Materials
       %input.search-materials.form-control.form-control-lg.col-6.mx-auto{:placeholder => "追加したい材料を検索", :type => "text"}/

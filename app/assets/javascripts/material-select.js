@@ -1,7 +1,9 @@
 $(function() {
+  // クリック回数を計算する初期値を設定
+  var conuntUpValue = 0;
   // 商品登録ボタンの上に使用材料を追加表示
-  function addMaterialHtml(materialId,materialName,pricePerUnit,materialUnit){
-    var html = `<form class="form-inline mx-auto add-material" style="max-width: 60%;">
+  function addMaterialHtml(conuntUpValue,materialId,materialName,pricePerUnit,materialUnit){
+    var html = `<div class="form-inline mx-auto add-material" style="max-width: 60%;">
                   <div class="form-group mb-2 col-sm-3">
                     <p class="form-control-plaintext" id="staticEmail2">${materialName}</p>
                   </div>
@@ -14,12 +16,17 @@ $(function() {
                     <p class="mb-0">${materialUnit}</P>
                   </div>
                   <button type="button" class="btn btn-light mb-2 determination_button" data_price-per-unit="${pricePerUnit}">使用量の決定</button>
-                  <button type="button" class="btn btn-light mb-2 material_delete_button" value="${materialId}">削除</button>
-                </form>`;
+                  <button type="button" class="btn btn-light mb-2 material_delete_button" >削除</button>
+                  <input class="use-material-id" type="hidden" name="item[use_materials_attributes][${conuntUpValue}][material_id]" id="item_use_materials_attributes_${conuntUpValue}_material_id" value="${materialId}">
+                  <input class="use-material-price" type="hidden" name="item[use_materials_attributes][${conuntUpValue}][price]" id="item_use_materials_attributes_${conuntUpValue}_price">
+                </div>`;
     $(".add-materials").append(html);
   }
   // 材料の選択ボタンを押すと材料のデータをhtmlへ送信
   $(document).on('click', '.select_button', function(){
+    // クリックする度にカウントアップ
+    conuntUpValue += 1;
+    // console.log(conuntUpValue)
     const materialId = $(this).attr("data_material_id")
     const materialName = $(this).attr("data_material_name")
     var materialPrice = $(this).attr("data_material_price")
@@ -32,7 +39,7 @@ $(function() {
     .parents(".material")
     .remove();
     // 材料の情報を引数で渡す
-    addMaterialHtml(materialId,materialName,pricePerUnit,materialUnit)
+    addMaterialHtml(conuntUpValue,materialId,materialName,pricePerUnit,materialUnit)
 
   })
   // 生成した使用材料の表示にある削除ボタンを押すと表示を削除

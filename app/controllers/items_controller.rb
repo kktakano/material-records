@@ -6,11 +6,12 @@ class ItemsController < ApplicationController
   def new
     @item = Item.new
     @materials = Material.where(user_id: current_user.id).order('created_at DESC')
-    30.times{@item.use_materials.build}
+    @item.use_materials.build
     # binding.pry
   end
 
   def create
+    binding.pry
     @item = Item.new(item_params)
     if @item.save
       redirect_to root_path
@@ -43,6 +44,6 @@ class ItemsController < ApplicationController
 
   private
   def item_params
-    params.require(:item).permit(:name, :price, :cost, :image).merge(user_id: current_user.id)
+    params.require(:item).permit(:name, :price, :cost, :image, use_materials_attributes:[:material_id,:price]).merge(user_id: current_user.id)
   end
 end

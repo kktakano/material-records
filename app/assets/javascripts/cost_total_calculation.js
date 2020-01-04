@@ -14,6 +14,8 @@ $(function() {
       total_cost += use_material_cost;
       // 使用材料の合計金額をフォームに表示
       $(".total-cost-form").val(total_cost)
+      // 使用材料の合計金額をclass"use-material-id"に与える
+      $(this).nextAll(".use-material-price").val(use_material_cost)
       // 決定ボタンを押すと入力ができないようにする
       adjacent_class.children(".use-material-value").attr("readonly",true)
       // 決定ボタンを押すと決定ボタンが無効化される
