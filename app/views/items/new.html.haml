@@ -39,7 +39,10 @@
             - if material.image.attached?
               = image_tag material.image,class: "bd-placeholder-img card-img-top",focusable: "false",height: "180", preserveaspectratio: "xMidYMid slice",role: "img",style:"object-fit: contain;"
             - else
-              = image_tag 'm_e_others_501.png',class: "bd-placeholder-img card-img-top",focusable: "false",height: "180", preserveaspectratio: "xMidYMid slice",role: "img",style:"object-fit: contain;"
+              %svg.bd-placeholder-img.card-img-top{"aria-label" => "Placeholder: Image cap", :focusable => "false", :height => "180", :preserveaspectratio => "xMidYMid slice", :role => "img", :width => "100%", :xmlns => "http://www.w3.org/2000/svg"}
+                %title Placeholder
+                %rect{:fill => "#868e96", :height => "100%", :width => "100%"}
+                %text{:dy => ".3em", :fill => "#dee2e6", :x => "40%", :y => "50%"} NoImage
             .card-body
               %h5.card-title #{material.name}
             %ul.list-group.list-group-flush
