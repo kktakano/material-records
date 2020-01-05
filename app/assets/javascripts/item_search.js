@@ -19,7 +19,7 @@ $(function() {
                       </div>
                       <div class='d-flex justify-content-between align-items-center'>
                         <div class='btn-group'>
-                          <button class='btn btn-sm btn-outline-secondary' type='button'>詳細</button>
+                          <button class='btn btn-sm btn-outline-secondary' type='button' onclick="location.href='/items/${item.id}/edit'">編集</button>
                         </div>
                         <div class='h3 text-right'>cost: ¥${item.cost}</div>
                       </div>
