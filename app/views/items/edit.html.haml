@@ -3,32 +3,53 @@
     %h1.text-center.jumbotron-heading.my-4 Edit Material
     .h5.text-center 材料の編集
     .container
-    = form_with model: @material, local: true do |f|
+    = form_with model: @item, local: true do |f|
       .card.mb-3.mx-auto{:style => "max-width: 850px;"}
         .row.no-gutters
           .col-md-4
-            - if @material.image.attached?
-              = image_tag @material.image, class: "card-img-top",style:"object-fit: contain;",height: "232"
-            - else
-              = f.label :image ,class: "mb-0" do
-                %svg.bd-placeholder-img{"aria-label" => "Placeholder: Image", :focusable => "false", :height => "232", :preserveaspectratio => "xMidYMid slice", :role => "img", :width => "100%", :xmlns => "http://www.w3.org/2000/svg"}
-                  %title Placeholder
-                  %rect{:fill => "#868e96", :height => "100%", :width => "100%"}
-                  %text{:dy => ".3em", :fill => "#dee2e6", :x => "20%", :y => "50%"} 画像を選択してください
-                = f.file_field :image, style: "display:none;"
+            = f.label :image ,class: "mb-0" do
+              %svg.bd-placeholder-img{"aria-label" => "Placeholder: Image", :focusable => "false", :height => "216", :preserveaspectratio => "xMidYMid slice", :role => "img", :width => "100%", :xmlns => "http://www.w3.org/2000/svg"}
+                %title Placeholder
+                %rect{:fill => "#868e96", :height => "100%", :width => "100%"}
+                %text{:dy => ".3em", :fill => "#dee2e6", :x => "20%", :y => "50%"} 画像を選択してください
+              = f.file_field :image, style: "display:none;"
+
           .col-md-8
             .card-body
-              .row
-                %label.col-sm-5.col-form-label.col-form-label-lg{:for => "inlineFormCustomSelectPref"} 材料名
-                = f.text_field :name, class:"form-control col-6", placeholder:"Name"
-              .row
-                %label.col-sm-5.col-form-label.col-form-label-lg{:for => "inlineFormCustomSelectPref"} 仕入れ価格
+              .form-group.row
+                %label.col-sm-5.col-form-label.col-form-label-lg{:for => "colFormLabelLg"} 商品名
+                = f.text_field :name, class:"form-control form-control-lg col-6", placeholder:"Item name"
+              .form-group.row
+                %label.col-sm-5.col-form-label.col-form-label-lg{:for => "inlineFormCustomSelectPref"} 販売価格(¥)
                 = f.text_field :price, class:"form-control col-6", placeholder:"Price"
               .row
-                %label.col-sm-5.col-form-label.col-form-label-lg{:for => "inlineFormCustomSelectPref"} 数量
-                = f.text_field :value, class:"form-control col-6", placeholder:"quantity"
-              .row
-                %label.col-sm-5.col-form-label.col-form-label-lg{:for => "inlineFormCustomSelectPref"} 単位(set,cm,deci)
-                = f.text_field :unit, class:"form-control col-6", placeholder:"unit"
+                %label.col-sm-5.col-form-label.col-form-label-lg{:for => "inlineFormCustomSelectPref"} 材料価格の合計(¥)
+                = f.text_field :cost, class:"form-control col-6 total-cost-form", placeholder:"Total cost (材料を選択して下さい)", readonly:"readonly"
+      -# = f.fields_for :use_materials do |m|
+      -#   .add-materials
       = f.submit "編集する", class:"btn btn-primary btn-lg mx-auto d-block mt-3 mb-5", style: "width:200px;"
-      = link_to "削除する", material_path, method: :delete, class:"btn btn-primary btn-lg mx-auto d-block mt-3 mb-5", style: "width:200px;"
+      = link_to "削除する", item_path, method: :delete, class:"btn btn-primary btn-lg mx-auto d-block mt-3 mb-5", style: "width:200px;"
+  -#     %h2.text-center.jumbotron-heading Materials
+  -#     %input.search-materials.form-control.form-control-lg.col-6.mx-auto{:placeholder => "追加したい材料を検索", :type => "text"}/
+
+  -# .album.py-5.bg-light
+  -#   .container
+  -#     .row.materials-list
+  -#       - @materials.each do |material| 
+  -#         .card.mx-auto.mb-2.material{:style => "width: 18rem;"}
+  -#           - if material.image.attached?
+  -#             = image_tag material.image,class: "bd-placeholder-img card-img-top",focusable: "false",height: "180", preserveaspectratio: "xMidYMid slice",role: "img",style:"object-fit: contain;"
+  -#           - else
+  -#             %svg.bd-placeholder-img.card-img-top{"aria-label" => "Placeholder: Image cap", :focusable => "false", :height => "180", :preserveaspectratio => "xMidYMid slice", :role => "img", :width => "100%", :xmlns => "http://www.w3.org/2000/svg"}
+  -#               %title Placeholder
+  -#               %rect{:fill => "#868e96", :height => "100%", :width => "100%"}
+  -#               %text{:dy => ".3em", :fill => "#dee2e6", :x => "40%", :y => "50%"} NoImage
+  -#           .card-body
+  -#             %h5.card-title #{material.name}
+  -#           %ul.list-group.list-group-flush
+  -#             %li.list-group-item 仕入れ値: ￥#{material.price}
+  -#             %li.list-group-item 総数: #{material.value}
+  -#             %li.list-group-item 単位(set,cm): #{material.unit}
+  -#           .card-body
+  -#             %button.btn.btn-sm.btn-outline-secondary.select_button{:type => "button",data_material_id:"#{material.id}",data_material_name:"#{material.name}",data_material_price:"#{material.price}",data_material_unit:"#{material.unit}",data_material_value:"#{material.value}"} 選択
+  -#     = paginate(@materials)
