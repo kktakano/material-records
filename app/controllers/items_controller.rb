@@ -16,12 +16,11 @@ class ItemsController < ApplicationController
     if @item.save
       redirect_to root_path
     else
-      render :new
+      redirect_to new_item_path, notice: '保存できませんでした'
     end
   end
 
   def search
-    # @items = Item.where('name LIKE(?)', "%#{params[:keyword]}%")
     @materials = Material.where('name LIKE(?)', "%#{params[:keyword]}%").where(user_id: current_user.id).order('created_at DESC')
     respond_to do |format|
       format.html
@@ -38,7 +37,7 @@ class ItemsController < ApplicationController
     if item.update(item_params)
       redirect_to root_path
     else
-      render :edit
+      redirect_to edit_item_path, notice: '更新できませんでした'
     end
   end
 
