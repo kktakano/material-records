@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   devise_for :users
 
   resources :users, only: [:edit, :update]
-  resources :items, only: [:new, :create, :edit, :update] do
+  resources :items, only: [:new, :create, :edit, :update, :destroy] do
     collection do
       get 'search'
       get 'item_search'
