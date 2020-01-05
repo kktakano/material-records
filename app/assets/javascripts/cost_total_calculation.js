@@ -1,4 +1,4 @@
-$(function() {
+$(document).on('turbolinks:load', function() {
   var total_cost = 0;
 
     // 入力された値を元に材料の合計を計算
@@ -25,5 +25,5 @@ $(function() {
     } else {
       alert("小数点第一位までの数を入力してください")
     }
-  })
+  });
 })
