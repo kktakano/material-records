@@ -17,7 +17,10 @@
             - if @material.image.attached?
               = image_tag @material.image, class: "card-img-top",style:"object-fit: contain;",height: "232"
             - else
-              = image_tag 'm_e_others_501.png', class: "card-img-top",style:"object-fit: contain;",height: "232"
+              %svg.card-img-top{"aria-label" => "Placeholder: Image cap", :focusable => "false", :height => "232", :preserveaspectratio => "xMidYMid slice", :role => "img", :width => "100%", :xmlns => "http://www.w3.org/2000/svg"}
+                %title Placeholder
+                %rect{:fill => "#868e96", :height => "100%", :width => "100%"}
+                %text{:dy => ".3em", :fill => "#dee2e6", :x => "40%", :y => "50%"} NoImage
           .col-md-8
             .card-body
               .row
