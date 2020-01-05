@@ -1,7 +1,7 @@
 %main{:role => "main"}
   %section
-    %h1.text-center.jumbotron-heading.my-4 New Material
-    .h5.text-center 材料の登録
+    %h1.text-center.jumbotron-heading.my-4 Edit Material
+    .h5.text-center 材料の編集
     .container
     = form_with model: @material, local: true do |f|
       .card.mb-3.mx-auto{:style => "max-width: 850px;"}
@@ -17,10 +17,12 @@
             - if @material.image.attached?
               = image_tag @material.image, class: "card-img-top",style:"object-fit: contain;",height: "232"
             - else
-              %svg.card-img-top{"aria-label" => "Placeholder: Image cap", :focusable => "false", :height => "232", :preserveaspectratio => "xMidYMid slice", :role => "img", :width => "100%", :xmlns => "http://www.w3.org/2000/svg"}
-                %title Placeholder
-                %rect{:fill => "#868e96", :height => "100%", :width => "100%"}
-                %text{:dy => ".3em", :fill => "#dee2e6", :x => "40%", :y => "50%"} NoImage
+              = f.label :image ,class: "mb-0" do
+                %svg.bd-placeholder-img{"aria-label" => "Placeholder: Image", :focusable => "false", :height => "232", :preserveaspectratio => "xMidYMid slice", :role => "img", :width => "100%", :xmlns => "http://www.w3.org/2000/svg"}
+                  %title Placeholder
+                  %rect{:fill => "#868e96", :height => "100%", :width => "100%"}
+                  %text{:dy => ".3em", :fill => "#dee2e6", :x => "20%", :y => "50%"} 画像を選択してください
+                = f.file_field :image, style: "display:none;"
           .col-md-8
             .card-body
               .row
