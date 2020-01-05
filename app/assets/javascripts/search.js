@@ -24,6 +24,7 @@ $(function() {
                 </div>
              </div>`
     $(".materials-list").append(html)
+    $(".pagination").empty()
   }
 
   function appendErrMsgToHTML(msg){
