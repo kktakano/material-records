@@ -15,7 +15,7 @@ class MaterialsController < ApplicationController
     if @material.save
       redirect_to materials_path, notice: '材料を登録しました'
     else
-      render :new
+      redirect_to new_material_path, notice: '保存できませんでした'
     end
   end
 
@@ -35,7 +35,7 @@ class MaterialsController < ApplicationController
     if material.update(material_params)
       redirect_to materials_path, notice: '材料を編集しました'
     else
-      render :edit
+      redirect_to edit_material_path, notice: '更新できませんでした'
     end
 
   end
