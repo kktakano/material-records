@@ -1,12 +1,12 @@
 class ItemsController < ApplicationController
   def index
-    @items = Item.where(user_id: current_user.id).order('created_at DESC')
+    @items = Item.where(user_id: current_user.id).order('created_at DESC').page(params[:page]).per(9)
   end
 
   def new
     @item = Item.new
-    @materials = Material.where(user_id: current_user.id).order('created_at DESC')
     @item.use_materials.build
+    @materials = Material.where(user_id: current_user.id).order('created_at DESC').page(params[:page]).per(9)
     # binding.pry
   end
 
