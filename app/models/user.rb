@@ -10,7 +10,7 @@ class User < ApplicationRecord
   validates :name,
     presence: :true                         # 存在している事を検証
   # e_mailのバリデーション
-  validates :e_mail,
+  validates :email,
     presence: :true,                        # 存在している事を検証
     uniqueness: { case_sensitive: false }   # 一意性制約(大文字と小文字を区別しない)
   # passwordのバリデーション
