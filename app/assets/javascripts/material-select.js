@@ -1,4 +1,4 @@
-$(document).on('turbolinks:load', function() {
+$(function() {
   // クリック回数を計算する初期値を設定
   var conuntUpValue = 0;
   // 商品登録ボタンの上に使用材料を追加表示
