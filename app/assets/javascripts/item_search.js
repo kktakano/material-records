@@ -34,10 +34,11 @@ $(document).on('turbolinks:load', function() {
     var html = `<div class="name mx-auto">${msg}</div>`
     $(".materials-list").append(html)
   }
-
+  // 検索フォームに入力で発火
   $(".item_search").on("keyup", function(){
+    // 入力した値を取得
     var input = $(this).val();
-    console.log(input)
+    // console.log(input)
 
     $.ajax({
       type: 'get',
@@ -46,7 +47,8 @@ $(document).on('turbolinks:load', function() {
       dataType: 'json'
     })
     .done(function(items){
-      console.log(items)
+      // console.log(items)
+      // 取得したデータをappendMaterialに送る
       $(".items-list").empty();
       if (items.length !== 0){
         items.forEach(function(item){
