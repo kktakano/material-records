@@ -7,13 +7,6 @@
       .card.mb-3.mx-auto{:style => "max-width: 850px;"}
         .row.no-gutters
           .col-md-4
-            -# = f.label :image ,class: "mb-0" do
-            -#   %svg.bd-placeholder-img{"aria-label" => "Placeholder: Image", :focusable => "false", :height => "232", :preserveaspectratio => "xMidYMid slice", :role => "img", :width => "100%", :xmlns => "http://www.w3.org/2000/svg"}
-            -#     %title Placeholder
-            -#     %rect{:fill => "#868e96", :height => "100%", :width => "100%"}
-            -#     %text{:dy => ".3em", :fill => "#dee2e6", :x => "20%", :y => "50%"} 画像を選択してください
-
-            -#   = f.file_field :image, style: "display:none;"
             - if @material.image.attached?
               = image_tag @material.image, class: "card-img-top",style:"object-fit: contain;",height: "232"
             - else
@@ -38,7 +31,4 @@
                 %label.col-sm-5.col-form-label.col-form-label-lg{:for => "inlineFormCustomSelectPref"} 単位(set,cm,deci)
                 = f.text_field :unit, class:"form-control col-6", placeholder:"unit"
       = f.submit "編集する", class:"btn btn-primary btn-lg mx-auto d-block mt-3 mb-5", style: "width:200px;"
-      -# = f.submit "削除する", class:"btn btn-primary btn-lg mx-auto d-block mt-3 mb-5", style: "width:200px;",onclick: "location.href='/materials/#{material.id}'", method: :delete
       = link_to "削除する", material_path, method: :delete, class:"btn btn-primary btn-lg mx-auto d-block mt-3 mb-5", style: "width:200px;"
-      -# = link_to("/materials/#{@material.id}",{method:"delete"}) do
-      -# %button.btn.btn-primary.btn-lg.mx-auto.d-block{type: "button",onclick: "location.href='/materials/#{@material.id}'",method: :delete, style: "width:200px;"} 削除する
