@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :items, only: [:new, :create, :edit, :update] do
     collection do
       get 'search'
+      get 'item_search'
     end
   end
   resources :materials, only: [:index, :new, :create, :edit, :update, :destroy]

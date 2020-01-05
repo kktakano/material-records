@@ -20,20 +20,20 @@ $(function() {
                   <li class="list-group-item">単位(set,cm): ${material.unit}</li>
                 </ul>
                 <div class="card-body">
-                  <button class="btn btn-sm btn-outline-secondary select_button" type="button" data_material_id="${material.id}" data_material_name="${material.name}" data_material_price="${material.price}" data_material_unit="${material.unit}" data_material_value="${material.value}">選択</button>
+                  <button class="btn btn-sm btn-outline-secondary" type="button" onclick="location.href='/materials/${material.id}/edit'">選択</button>
                 </div>
              </div>`
-    $(".materials-list").append(html)
+    $(".material-lists").append(html)
     $(".pagination").empty()
   }
 
   function appendErrMsgToHTML(msg){
     var html = `<div class="name mx-auto">${msg}</div>`
-    $(".materials-list").append(html)
+    $(".material-lists").append(html)
   }
 
-  $(".search-materials").on("keyup", function(){
-    var input = $(".search-materials").val();
+  $(".search--materials").on("keyup", function(){
+    var input = $(this).val();
     console.log(input)
 
     $.ajax({
@@ -44,7 +44,7 @@ $(function() {
     })
     .done(function(materials){
       console.log(materials)
-      $(".materials-list").empty();
+      $(".material-lists").empty();
       if (materials.length !== 0){
         materials.forEach(function(material){
           appendMaterial(material);

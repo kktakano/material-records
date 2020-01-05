@@ -2,11 +2,11 @@
   %section.jumbotron.text-center
     .container
       %h1.jumbotron-heading Products
-      %input.form-control.form-control-lg{:placeholder => "商品を検索", :type => "text"}/
+      %input.item_search.form-control.form-control-lg{:placeholder => "商品を検索", :type => "text"}/
 
   .album.py-5.bg-light
     .container
-      .row
+      .row.items-list
         - @items.each do |item|
           .col-md-4
             .card.mb-4.shadow-sm
@@ -20,7 +20,7 @@
               .card-body
                 %p.card-text name:#{item.name}
                 .d-flex.justify-content-between.align-items-center
-                  .h6 ￥#{item.price}
+                  .h6 ¥#{item.price}
                 .d-flex.justify-content-between.align-items-center
                   .btn-group
                     %button.btn.btn-sm.btn-outline-secondary{:type => "button"} 詳細

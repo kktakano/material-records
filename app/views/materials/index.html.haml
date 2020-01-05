@@ -2,11 +2,11 @@
   %section.jumbotron.text-center
     .container
       %h1.jumbotron-heading Materials
-      %input.form-control.form-control-lg{:placeholder => "材料を検索", :type => "text"}/
+      %input.search--materials.form-control.form-control-lg{:placeholder => "材料を検索", :type => "text"}/
 
   .album.py-5.bg-light
     .container
-      .row
+      .row.material-lists
         - @materials.each do |material| 
           .card.mx-auto.mb-2{:style => "width: 18rem;"}
             - if material.image.attached?
