@@ -45,7 +45,7 @@ Things you may want to cover:
 |price|integer||
 |cost|decimal(6,1)|null: false|
 |image|string||
-|stock|integer|null: false|
+|user_id|references|null: false,foreign_key: true|
 
 ### Association
 - belongs_to :user
@@ -62,6 +62,8 @@ Things you may want to cover:
 |unit|string|null: false|
 |image|string||
 |supplier|string||
+|user_id|references|null: false,foreign_key: true|
+
 
 ### Association
 - belongs_to :user
@@ -73,8 +75,8 @@ Things you may want to cover:
 |Column|Type|Options|
 |------|----|-------|
 |material_id|references|null: false, foreign_key: true|
+|item_id|references|null: false, foreign_key: true|
 |price|decimal(6,1)|null: false|
-|value|decimal(6,1)|null: false|
 
 ### Association
 - belongs_to :item
