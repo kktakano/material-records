@@ -83,3 +83,4 @@ gem 'bootstrap', '~> 4.4.1'
 gem 'jquery-rails'
 gem 'kaminari'
 gem "aws-sdk-s3", require: false
+gem 'rails-i18n'
