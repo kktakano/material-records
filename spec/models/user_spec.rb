@@ -7,25 +7,25 @@ describe User do
       user = build(:user)
       expect(user).to be_valid
     end
-
+    # nameが空では登録できない事
     it "is invalid without a name" do
       user = build(:user, name: nil)
       user.valid?
       expect(user.errors[:name]).to include("を入力してください")
     end
-
-    it "is invalid without a name" do
+    # emailが空では登録できない事
+    it "is invalid without a email" do
       user = build(:user, email: nil)
       user.valid?
       expect(user.errors[:email]).to include("を入力してください")
     end
-
+    # passwordが空では登録できない事
     it "is invalid without a password" do
       user = build(:user, password: nil)
       user.valid?
       expect(user.errors[:password]).to include("を入力してください")
     end
-
+    # passwordが存在してもpassword_confirmationが空では登録できない事
     it "is invalid without a password_confirmation" do
       user = build(:user, password_confirmation: "")
       user.valid?
