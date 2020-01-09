@@ -50,5 +50,17 @@ describe User do
       user.valid?
       expect(user.errors[:password]).to include("は6文字以上で入力してください")
     end
+    # passwordが20文字以下であれば登録できること
+    it "is valid with a password that has less than 20 characters" do
+      user = build(:user, password: "00000000000000000000", password_confirmation: "00000000000000000000")
+      user.valid?
+      expect(user).to be_valid
+    end
+    # passwordが20文字以上であれば登録できないこと
+    it "is invalid with a password that has more than 20 characters" do
+      user = build(:user, password: "000000000000000000000", password_confirmation: "000000000000000000000")
+      user.valid?
+      expect(user.errors[:password]).to include("は20文字以内で入力してください")
+    end
   end
 end
