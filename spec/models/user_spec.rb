@@ -6,25 +6,25 @@ describe User do
     it "is invalid without a name" do
       user = build(:user, name: nil)
       user.valid?
-      expect(user.errors[:name]).to include("translation missing: ja.activerecord.errors.models.user.attributes.name.blank")
+      expect(user.errors[:name]).to include("を入力してください")
     end
 
     it "is invalid without a name" do
       user = build(:user, email: nil)
       user.valid?
-      expect(user.errors[:email]).to include("translation missing: ja.activerecord.errors.models.user.attributes.email.blank")
+      expect(user.errors[:email]).to include("を入力してください")
     end
 
     it "is invalid without a password" do
       user = build(:user, password: nil)
       user.valid?
-      expect(user.errors[:password]).to include("translation missing: ja.activerecord.errors.models.user.attributes.password.blank")
+      expect(user.errors[:password]).to include("を入力してください")
     end
 
     it "is invalid without a password_confirmation" do
       user = build(:user, password_confirmation: "")
       user.valid?
-      expect(user.errors[:password_confirmation]).to include("translation missing: ja.activerecord.errors.models.user.attributes.password_confirmation.confirmation")
+      expect(user.errors[:password_confirmation]).to include("とパスワードの入力が一致しません")
     end
 
   end
