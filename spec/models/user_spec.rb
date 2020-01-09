@@ -22,7 +22,7 @@ describe User do
     end
 
     it "is invalid without a password_confirmation" do
-      user = build(:user, password_confirmation: nil)
+      user = build(:user, password_confirmation: "")
       user.valid?
       expect(user.errors[:password_confirmation]).to include("translation missing: ja.activerecord.errors.models.user.attributes.password_confirmation.confirmation")
     end
