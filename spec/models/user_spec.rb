@@ -31,6 +31,13 @@ describe User do
       user.valid?
       expect(user.errors[:password_confirmation]).to include("とパスワードの入力が一致しません")
     end
+    # 重複したemailが存在する場合登録できないこと
+    it "is invalid with a duplicate email address" do
+      user = create(:user)
+      another_user = build(:user, email: user.email)
+      another_user.valid?
+      expect(another_user.errors[:email]).to include("はすでに存在します")
+    end
 
   end
 end
