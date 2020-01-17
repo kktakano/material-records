@@ -28,10 +28,16 @@ RSpec.describe Material, type: :model do
         expect(material.errors[:value]).to include("を入力してください")
       end
       # unit が空では登録できない
-      it 'it invalid without unit' do
+      it 'is invalid without unit' do
         material = build(:material, unit: nil)
         material.valid?
         expect(material.errors[:unit]).to include("を入力してください")
+      end
+      user_id が空では登録できない
+      it 'is invalid without user_id' do
+        material = build(:material, user_id: nil)
+        material.valid?
+        expect(material.errors[:user]).to include("を入力してください")
       end
     end
   end
