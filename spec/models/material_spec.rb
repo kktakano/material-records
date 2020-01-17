@@ -21,6 +21,12 @@ RSpec.describe Material, type: :model do
         material.valid?
         expect(material.errors[:price]).to include("を入力してください")
       end
+      # value が空では登録できない
+      it 'is invalid without value' do
+        material = build(:material, value: nil)
+        material.valid?
+        expect(material.errors[:value]).to include("を入力してください")
+      end
     end
   end
 end
