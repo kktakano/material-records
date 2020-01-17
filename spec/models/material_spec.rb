@@ -33,7 +33,7 @@ RSpec.describe Material, type: :model do
         material.valid?
         expect(material.errors[:unit]).to include("を入力してください")
       end
-      user_id が空では登録できない
+      # user_id が空では登録できない
       it 'is invalid without user_id' do
         material = build(:material, user_id: nil)
         material.valid?
