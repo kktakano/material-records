@@ -15,6 +15,12 @@ RSpec.describe UseMaterial, type: :model do
         use_material.valid?
         expect(use_material.errors[:price]).to include("を入力してください")
       end
+      # item_id が空では登録できない
+      it 'is invalid without item_id' do
+        use_material = build(:use_material, item_id:nil)
+        use_material.valid?
+        expect(use_material.errors[:item]).to include("を入力してください")
+      end
     end
   end
 end
