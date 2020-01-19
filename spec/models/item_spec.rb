@@ -13,7 +13,12 @@ RSpec.describe Item, type: :model do
       end
     end
     context 'can not save' do
-      
+      # name が空では登録できない
+      it 'is invalid without name' do
+        item = build(:item, name: nil)
+        item.valid?
+        expect(item.errors[:name]).to include("を入力してください")
+      end
     end
   end
 end
