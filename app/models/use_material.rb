@@ -5,7 +5,10 @@ class UseMaterial < ApplicationRecord
   # priceのバリデーション
   validates :price,
   presence: true                         # 存在している事を検証
-  # valueのバリデーション
-  # validates :value,
-  # presence: true                         # 存在している事を検証
+  # item_idのバリデーション
+  validates :item,
+  presence: true                         # 存在している事を検証
+  # material_idのバリデーション
+  validates :material,
+  presence: true                         # 存在している事を検証  
 end
