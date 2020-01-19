@@ -12,5 +12,8 @@ class Item < ApplicationRecord
     presence: true                         # 存在している事を検証
   # priceのバリデーション
   validates :price,
-  length: { maximum: 9 }                  # 0.1〜99999999.9までの入力を許可
+    length: { maximum: 9 }                  # 0.1〜99999999.9までの入力を許可
+  # user_idのバリデーション
+  validates :user,
+    presence: true                         # 存在している事を検証
 end

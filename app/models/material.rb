@@ -16,4 +16,7 @@ class Material < ApplicationRecord
   # unitのバリデーション
   validates :unit,
   presence: true                         # 存在している事を検証
+  # user_idのバリデーション
+  validates :user, 
+  presence: true                         # 存在している事を検証
 end
