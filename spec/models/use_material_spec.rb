@@ -9,7 +9,12 @@ RSpec.describe UseMaterial, type: :model do
       end
     end
     context 'can not save' do
-      
+      # price が空では登録できない
+      it 'is invalid without price' do
+        use_material = build(:use_material, price: nil)
+        use_material.valid?
+        expect(use_material.errors[:price]).to include("を入力してください")
+      end
     end
   end
 end
