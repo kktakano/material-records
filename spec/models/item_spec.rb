@@ -19,6 +19,12 @@ RSpec.describe Item, type: :model do
         item.valid?
         expect(item.errors[:name]).to include("を入力してください")
       end
+      # cost が空では登録できない
+      it 'is invalid without cost' do
+        item = build(:item, cost: nil)
+        item.valid?
+        expect(item.errors[:cost]).to include("を入力してください")
+      end
     end
   end
 end
