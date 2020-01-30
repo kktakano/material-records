@@ -21,6 +21,9 @@ describe MaterialsController do
       before do
         login user
       end
+      it 'assigns @material' do
+        expect(assigns(:material)).to be_a_new(Material)
+      end
       it "render the :new template" do
         get :new
         expect(response).to render_template :new
