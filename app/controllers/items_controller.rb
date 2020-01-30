@@ -7,11 +7,9 @@ class ItemsController < ApplicationController
     @item = Item.new
     @item.use_materials.build
     @materials = Material.where(user_id: current_user.id).order('created_at DESC').page(params[:page]).per(9)
-    # binding.pry
   end
 
   def create
-    # binding.pry
     @item = Item.new(item_params)
     if @item.save
       redirect_to root_path
