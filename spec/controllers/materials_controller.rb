@@ -9,6 +9,9 @@ describe MaterialsController do
         login user
         get :index
       end
+      it 'populates an array of tweets ordered by created_at DESC' do
+        expect(:materials)
+      end
     end
 
     context 'not log in' do
