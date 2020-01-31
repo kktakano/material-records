@@ -20,6 +20,7 @@ describe MaterialsController do
     context 'log in' do
       before do
         login user
+        get :new
       end
       it 'assigns @material' do
         expect(assigns(:material)).to be_a_new(Material)
@@ -31,6 +32,7 @@ describe MaterialsController do
     end
     context 'not log in' do
       before do
+        get :new
       end
       it 'redirects to new_user_session_path' do
         expect(response).to redirect_to(new_user_session_path)
