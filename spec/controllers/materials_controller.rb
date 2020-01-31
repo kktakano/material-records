@@ -10,7 +10,8 @@ describe MaterialsController do
         get :index
       end
       it 'populates an array of materials ordered by created_at DESC' do
-        expect(:materials)
+        materials = create_list(:material, 9)
+        expect(assigns(:materials)).to match(materials.sort{ |a,b| b.created_at <=> a.created_at })
       end
     end
 
