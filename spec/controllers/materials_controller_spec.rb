@@ -53,12 +53,15 @@ describe MaterialsController do
   describe 'GET #edit' do
     context 'log in' do
       before do
-        material = create(:material, user_id: user.id)
         login user
+        material = create(:material, user_id: user.id)
         get :edit, params: {id: material}
       end
       it 'assigns the requested material to @material' do
         expect(assigns(:material)).to eq material
+      end
+      it 'render the :new template' do
+        expect(response).to render_template :edit
       end
     end
     context 'not log in' do
