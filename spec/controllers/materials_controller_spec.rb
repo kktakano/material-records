@@ -57,7 +57,17 @@ describe MaterialsController do
         login user
       end
       context 'can save' do
-        
+        subject {
+          post :create,
+          params: params
+        }
+        it 'count up material' do
+          expect{subject}.to change(Material, :count).by(1)
+        end
+        it 'redirects to materials_path' do
+          subject
+          expect(response).to redirect_to(materials_path)
+        end
       end
       context 'can not save' do
         
