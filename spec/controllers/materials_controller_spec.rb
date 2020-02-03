@@ -18,7 +18,6 @@ describe MaterialsController do
         expect(response).to render_template :index
       end
     end
-
     context 'not log in' do
       before do
         get :index
@@ -54,13 +53,15 @@ describe MaterialsController do
     context 'log in' do
       before do
         login user
-        material = create(:material, user_id: user.id)
-        get :edit, params: {id: material}
       end
       it 'assigns the requested material to @material' do
+        material = create(:material, user_id: user.id)
+        get :edit, params: {id: material}
         expect(assigns(:material)).to eq material
       end
       it 'render the :new template' do
+        material = create(:material, user_id: user.id)
+        get :edit, params: {id: material}
         expect(response).to render_template :edit
       end
     end
