@@ -56,6 +56,7 @@ describe MaterialsController do
       before do
         login user
       end
+      # 保存に成功した場合
       context 'can save' do
         subject {
           post :create,
@@ -69,8 +70,20 @@ describe MaterialsController do
           expect(response).to redirect_to(materials_path)
         end
       end
+      # 保存に失敗した場合
       context 'can not save' do
-        
+        let(:invalid_params) {{user_id: user.id, material:attributes_for(:material, name: nil)}}
+        subject {
+          post :create,
+          params: invalid_params
+        }
+        it 'does not count up' do
+          expect{subject}.not_to change(Material, :count)
+        end
+        it 'redirect to edit_material_path' do
+          subject
+          expect(response).to redirect_to(new_material_path)
+        end
       end
     end
     context 'not log in' do
