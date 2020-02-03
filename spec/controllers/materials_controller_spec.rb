@@ -49,6 +49,27 @@ describe MaterialsController do
     end
   end
 
+  describe '#create' do
+    let(:params) {{user_id: user.id, material:attributes_for(:material)}}
+
+    context 'log in' do
+      before do
+        login user
+      end
+      context 'can save' do
+        
+      end
+      context 'can not save' do
+        
+      end
+    end
+    context 'not log in' do
+      before do
+        login user
+      end
+    end
+  end
+
   describe 'GET #edit' do
     context 'log in' do
       before do
