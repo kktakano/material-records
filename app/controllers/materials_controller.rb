@@ -9,7 +9,6 @@ class MaterialsController < ApplicationController
   end
 
   def create
-    # binding.pry
     @material = Material.new(material_params)
     if @material.save
       redirect_to materials_path, notice: '材料を登録しました'
