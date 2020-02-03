@@ -2,7 +2,6 @@ class MaterialsController < ApplicationController
 
   def index
     @materials = Material.where(user_id: current_user.id).order('created_at DESC').page(params[:page]).per(9)
-    # binding.pry
   end
 
   def new
@@ -10,7 +9,6 @@ class MaterialsController < ApplicationController
   end
 
   def create
-    # binding.pry
     @material = Material.new(material_params)
     if @material.save
       redirect_to materials_path, notice: '材料を登録しました'
@@ -42,7 +40,6 @@ class MaterialsController < ApplicationController
 
   def destroy
     product = Material.find(params[:id])
-    # product.destroy if product.user.id == current_user.id
     product.destroy
     redirect_to materials_path, notice: '材料を削除しました'
   end
